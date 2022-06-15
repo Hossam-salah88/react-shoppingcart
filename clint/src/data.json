@@ -1,0 +1,38 @@
+[
+    {
+        "id": "id1",
+        "title": "computer",
+        "imgUrl": "/imges/img1.png",
+        "des": "this is product 1",
+        "price": 30,
+        "sizes": ["S", "M"]
+    },
+
+    {
+        "id": "id2",
+        "title": "computer",
+        "imgUrl": "/imges/img2.png",
+        "des": "this is product 2",
+        "price": 50,
+        "sizes": ["S", "M"]
+    },
+
+    {
+        "id": "id3",
+        "title": "computer",
+        "imgUrl": "/imges/img3.png",
+        "des": "this is product 3",
+        "price": 40,
+        "sizes": ["S", "M"]
+    },
+
+    {
+        "id": "id4",
+        "title": "computer",
+        "imgUrl": "/imges/img4.png",
+        "des": "this is product 4",
+        "price": 60,
+        "sizes": ["S", "M"]
+    }
+
+]

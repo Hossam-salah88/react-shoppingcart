@@ -5,3 +5,12 @@ const sass = gulpSass(require("sass"));
 gulp.task("sass", async function () {
   gulp.src("src/components/**/*.scss").pipe(sass()).pipe(gulp.dest("src/css"));
 });
+
+gulp.task("watchsass", async function () {
+  gulp.watch("src/components/**/*.scss", async function () {
+    gulp
+      .src("src/components/**/*.scss")
+      .pipe(sass())
+      .pipe(gulp.dest("src/css"));
+  });
+});
