@@ -16,6 +16,7 @@
   },
   "scripts": {
     "sass": "gulp sass",
+    "watch": "gulp watchsass",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
