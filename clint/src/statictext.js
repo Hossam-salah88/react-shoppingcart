@@ -1,5 +1,5 @@
 export const statictext = {
   headerTitle: "Shoppin cart",
-  footerTitle: "@ CopyRight Footer Section",
+  footerTitle: "Footer Section",
   content: "content",
 };
