@@ -33,3 +33,29 @@
         border-radius: 5px;
     }
 }
+
+// ============ Model ================
+
+.model {
+    text-align: center;
+    &__img {
+        display: block;
+        width: 30%;
+        max-width: 100%;
+        margin: 20px auto;
+    }
+
+    &__title {
+        color: #245ea2;
+        font-size: 20px;
+        margin: 10px 0;
+    }
+}
+
+.model__closebtn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 20px;
+} 
