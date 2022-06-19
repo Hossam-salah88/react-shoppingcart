@@ -7,7 +7,11 @@ const Filter = (props) => {
       <div className="filter__productNum">Number of product 4</div>
       <div className="filter__size">
         <span className="filter__size--title">Filter</span>
-        <select className="filter__selectSize">
+        <select
+          className="filter__selectSize"
+          onChange={props.handelSizeFilter}
+          value={props.size}
+        >
           <option value="ALL">ALL</option>
           <option value="S">S</option>
           <option value="M">M</option>
@@ -16,8 +20,12 @@ const Filter = (props) => {
           <option value="XXL">XXL</option>
         </select>
       </div>
-      <div className="filter__size">
-        <span>Order</span>
+      <div
+        className="filter__size"
+        onChange={props.handelSortFilter}
+        value={props.sort}
+      >
+        <span className="filter__size--title">Order</span>
         <select className="filter__selectSize">
           <option value="lastes">Lastes</option>
           <option value="lower">Lower</option>
