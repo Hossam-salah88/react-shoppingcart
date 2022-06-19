@@ -1,0 +1,23 @@
+.filter {
+  border: solid 1px #c0c0c0;
+}
+.filter__title {
+  background-color: #2a5ea2;
+  padding: 10px;
+  color: #fff;
+}
+.filter__size--title {
+  display: block;
+  font-size: 25px;
+  margin: 10px 0;
+}
+.filter > div {
+  padding: 5px 20px;
+  margin: 13px 0;
+}
+.filter select {
+  display: block;
+  height: 40px;
+  width: 100%;
+  border: 1px solid #c0c0c0;
+}
