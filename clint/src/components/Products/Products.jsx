@@ -29,7 +29,12 @@ const Products = (props) => {
             <p className="product__title">{product.title}</p>
             <span className="product__subtitle">{product.price}</span>
           </div>
-          <button className="product__btn">Add To Cart</button>
+          <button
+            onClick={() => props.addToCart(product)}
+            className="product__btn"
+          >
+            Add To Cart
+          </button>
         </div>
       ))}
 
