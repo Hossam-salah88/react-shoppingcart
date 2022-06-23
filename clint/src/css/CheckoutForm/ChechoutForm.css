@@ -5,6 +5,7 @@
   width: 100%;
   background-color: #ddd;
   padding: 30px;
+  transition: all 0.2s;
 }
 .checkout__container form {
   width: 60%;

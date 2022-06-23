@@ -5,7 +5,7 @@
     width: 100%;
     background-color: #ddd;
     padding: 30px;
-
+    transition: all 0.2s;
     form {
         width: 60%;
         margin: auto;
@@ -28,10 +28,6 @@
         }
     }
 }
-
-
-
-
 
 .checkout__close {
     position: absolute;
