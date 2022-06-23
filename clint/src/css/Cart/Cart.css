@@ -31,3 +31,16 @@
   padding: 7px;
   border-radius: 5px;
 }
+.cart__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px;
+}
+.cart__total, .cart__zero {
+  font-size: 25px;
+  font-weight: 600;
+}
+.cart__zero {
+  padding: 30px 0;
+}

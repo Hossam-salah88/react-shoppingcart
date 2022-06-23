@@ -35,4 +35,21 @@
         padding: 7px;
         border-radius: 5px;
     }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 20px;
+    }
+
+    &__total, &__zero {
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    &__zero {
+        padding: 30px 0;
+    }
 }
+
