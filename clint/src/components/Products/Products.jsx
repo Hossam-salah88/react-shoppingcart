@@ -58,7 +58,7 @@ const Products = (props) => {
 export default connect(
   (state) => {
     return {
-      products: state.products.products,
+      products: state.products.productfilter,
     };
   },
   { fetchProduct }
