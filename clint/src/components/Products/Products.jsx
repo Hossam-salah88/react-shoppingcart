@@ -4,6 +4,7 @@ import ProductModal from "../ProductModal/ProductModal";
 import Bounce from "react-reveal/Bounce";
 import { connect } from "react-redux";
 import { fetchProduct } from "../../store/actions/products";
+import { addCart } from "../../store/actions/cart";
 import { useEffect } from "react";
 
 const Products = (props) => {
@@ -40,7 +41,7 @@ const Products = (props) => {
                   <span className="product__subtitle">{product.price}</span>
                 </div>
                 <button
-                  onClick={() => props.addToCart(product)}
+                  onClick={() => props.addCart(product)}
                   className="product__btn"
                 >
                   Add To Cart
@@ -61,5 +62,5 @@ export default connect(
       products: state.products.productfilter,
     };
   },
-  { fetchProduct }
+  { fetchProduct, addCart }
 )(Products);
