@@ -3,6 +3,8 @@ import "../../css/Cart/Cart.css";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 import Zoom from "react-reveal/Zoom";
 import Bounce from "react-reveal/Bounce";
+import { connect } from "react-redux";
+import { removeCart } from "../../store/actions/cart";
 
 const Cart = (props) => {
   const [showForm, setShowForm] = useState(false);
@@ -10,14 +12,14 @@ const Cart = (props) => {
     <Zoom>
       <div className="cart">
         <h2 className="cart__title">
-          {props.cartItem.length ? (
-            <p>There is {props.cartItem.length} products in card</p>
+          {props.cartItems.length ? (
+            <p>There is {props.cartItems.length} products in card</p>
           ) : (
             "The Cart is empty"
           )}
         </h2>
         <div className="cart__container">
-          {props.cartItem.map((item) => (
+          {props.cartItems.map((item) => (
             <Bounce top cascade>
               <div className="cart__item" key={item.id}>
                 <img className="cart__img" src={item.imgUrl} alt={item.title} />
@@ -29,7 +31,7 @@ const Cart = (props) => {
                   </div>
                   <button
                     onClick={() => {
-                      props.removeproduct(item);
+                      props.removeCart(item);
                     }}
                     className="cart__btn"
                   >
@@ -40,11 +42,11 @@ const Cart = (props) => {
             </Bounce>
           ))}
         </div>
-        {props.cartItem.length ? (
+        {props.cartItems.length ? (
           <div className="cart__footer">
             <div className="cart__total">
               Total: ${" "}
-              {props.cartItem.reduce((acc, p) => {
+              {props.cartItems.reduce((acc, p) => {
                 return acc + p.price * p.qty;
               }, 0)}
             </div>
@@ -62,4 +64,11 @@ const Cart = (props) => {
   );
 };
 
-export default Cart;
+export default connect(
+  (state) => {
+    return {
+      cartItems: state.cart.cartItems,
+    };
+  },
+  { removeCart }
+)(Cart);

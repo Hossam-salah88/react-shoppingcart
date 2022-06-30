@@ -12,8 +12,8 @@ function App() {
   const [products, setProducts] = useState(data);
   const [size, setSize] = useState("");
   const [sort, setSort] = useState("");
-  const [cartItem, setCartItem] = useState(
-    JSON.parse(localStorage.getItem("cardItem")) || []
+  const [cartItems, setCartItems] = useState(
+    JSON.parse(localStorage.getItem("cardItems")) || []
   );
 
   const handelSizeFilter = (e) => {
@@ -46,7 +46,7 @@ function App() {
   };
 
   const addToCart = (product) => {
-    const cardItemsClone = [...cartItem];
+    const cardItemsClone = [...cartItems];
     let isProductExist = false;
     cardItemsClone.forEach((p) => {
       if (p.id === product.id) {
@@ -58,17 +58,17 @@ function App() {
     if (!isProductExist) {
       cardItemsClone.push({ ...product, qty: 1 });
     }
-    setCartItem(cardItemsClone);
+    setCartItems(cardItemsClone);
   };
 
   const removeproduct = (product) => {
-    const cardItemsClone = [...cartItem];
-    setCartItem(cardItemsClone.filter((p) => p.id !== product.id));
+    const cardItemsClone = [...cartItems];
+    setCartItems(cardItemsClone.filter((p) => p.id !== product.id));
   };
 
   useEffect(() => {
-    localStorage.setItem("cardItem", JSON.stringify(cartItem));
-  }, [cartItem]);
+    localStorage.setItem("cardItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   return (
     <Provider store={store}>
@@ -87,7 +87,7 @@ function App() {
               />
             </div>
           </div>
-          <Cart cartItem={cartItem} removeproduct={removeproduct} />
+          <Cart cartItems={cartItems} removeproduct={removeproduct} />
         </main>
         <Footer />
       </div>
