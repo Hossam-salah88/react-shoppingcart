@@ -2,9 +2,12 @@ import React from "react";
 import { useState } from "react";
 import "../../css/CheckoutForm/ChechoutForm.css";
 import Slide from "react-reveal/Slide";
+import Modal from "react-modal";
+import { connect } from "react-redux";
 
 const CheckoutForm = (props) => {
   const [value, setValue] = useState("");
+  const [order, setOrder] = useState(false);
 
   const handelFormSubmit = (e) => {
     e.preventDefault();
@@ -12,7 +15,7 @@ const CheckoutForm = (props) => {
       name: value.name,
       email: value.email,
     };
-    console.log(order);
+    setOrder(order);
   };
 
   const handelFormChange = (e) => {
@@ -20,6 +23,10 @@ const CheckoutForm = (props) => {
       ...prevState,
       [e.target.name]: e.target.value,
     }));
+  };
+
+  const closeModal = () => {
+    setOrder(false);
   };
 
   return (
@@ -62,8 +69,54 @@ const CheckoutForm = (props) => {
           </form>
         </div>
       </Slide>
+      <Modal isOpen={order} onRequestClose={closeModal}>
+        <div className="order">
+          <span className="order__closeBtn" onClick={closeModal}>
+            &times;
+          </span>
+          <p className="order__success">Order done sucsess</p>
+          <table>
+            <tr>
+              <td>Name:</td>
+              <td>{order.name}</td>
+            </tr>
+
+            <tr>
+              <td>Email:</td>
+              <td>{order.email}</td>
+            </tr>
+
+            <tr>
+              <td>Total:</td>
+              <td>
+                {props.cartItems.reduce((acc, p) => {
+                  return acc + p.price;
+                }, 0)}
+              </td>
+            </tr>
+
+            <tr>
+              <td>selectd item</td>
+              <td>
+                {props.cartItems.map((p) => (
+                  <div className="order__cart">
+                    <div className="order__data">
+                      <p>Number of this products: {p.qty}</p>
+                      <p>Tiitle of this products: {p.title}</p>
+                    </div>
+                  </div>
+                ))}
+              </td>
+            </tr>
+          </table>
+        </div>
+      </Modal>
     </div>
   );
 };
 
-export default CheckoutForm;
+export default connect((state) => {
+  return {
+    cartItems: state.cart.cartItems,
+  };
+})(CheckoutForm);
