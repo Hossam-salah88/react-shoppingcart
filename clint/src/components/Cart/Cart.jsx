@@ -8,6 +8,7 @@ import { removeCart } from "../../store/actions/cart";
 
 const Cart = (props) => {
   const [showForm, setShowForm] = useState(false);
+
   return (
     <Zoom>
       <div className="cart">
