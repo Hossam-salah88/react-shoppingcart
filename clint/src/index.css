@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;1,300;1,600;1,800&family=PT+Sans:wght@700&family=Poppins:wght@400;500&family=Roboto:wght@300;400;700&family=Satisfy&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
   /* outline: 1px solid limegreen !important; */
   /* background: rgb(0 100 0 / 0.1) !important; */
 }
@@ -41,4 +44,24 @@ main {
 .wrapper__filter {
   width: 30%;
   padding: 30px;
+}
+
+.nav ul {
+  display: flex;
+  background-color: #fff;
+  list-style: none;
+  padding: 10px 35px;
+}
+
+.nav ul li a {
+  display: block;
+  background-color: #2a5ea2;
+  color: #fff;
+  padding: 5px 10px;
+  margin-right: 5px;
+  text-decoration: none !important;
+}
+
+.nav ul li a.active {
+  background-color: #000;
 }
