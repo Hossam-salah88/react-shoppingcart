@@ -5,6 +5,7 @@ import Slide from "react-reveal/Slide";
 import OrderModel from "../orderModel/OrderModel";
 import { creatOrder, clearOrder } from "../../store/actions/order";
 import { connect } from "react-redux";
+import { words } from "../../words";
 
 const CheckoutForm = (props) => {
   const [value, setValue] = useState("");
@@ -43,7 +44,7 @@ const CheckoutForm = (props) => {
           </span>
           <form onSubmit={handelFormSubmit} className="checkout__form">
             <div>
-              <label>Name</label>
+              <label>{words.cheackoutName}</label>
               <input
                 onChange={handelFormChange}
                 type="text"
@@ -53,7 +54,7 @@ const CheckoutForm = (props) => {
             </div>
 
             <div>
-              <label>Email</label>
+              <label>{words.cheackoutEmail}</label>
               <input
                 onChange={handelFormChange}
                 type="email"
@@ -64,7 +65,7 @@ const CheckoutForm = (props) => {
 
             <div>
               <button className="cart__btn" type="submit">
-                Checkout
+                {words.cheackoutBtn}
               </button>
             </div>
           </form>
