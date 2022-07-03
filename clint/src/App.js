@@ -1,28 +1,29 @@
 import React from "react";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import Products from "./components/Products/Products";
-import Filter from "./components/Filter/Filter";
-import Cart from "./components/Cart/Cart";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Order from "./pages/Order";
+import NavBar from "./components/NavBar/NavBar";
 function App() {
   return (
-    <Provider store={store}>
-      <div className="layout">
-        <Header />
-        <main>
-          <div className="wrapper">
-            <Products />
-            <div className="wrapper__filter">
-              <Filter />
-            </div>
-          </div>
-          <Cart />
-        </main>
-        <Footer />
-      </div>
-    </Provider>
+    <BrowserRouter>
+      <Provider store={store}>
+        <div className="layout">
+          <Header />
+          <main>
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<Home />} exact />
+              <Route path="/order" element={<Order />} exact />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Provider>
+    </BrowserRouter>
   );
 }
 
