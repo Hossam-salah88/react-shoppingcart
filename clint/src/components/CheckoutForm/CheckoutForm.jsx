@@ -3,10 +3,11 @@ import { useState } from "react";
 import "../../css/CheckoutForm/ChechoutForm.css";
 import Slide from "react-reveal/Slide";
 import OrderModel from "../orderModel/OrderModel";
+import { creatOrder, clearOrder } from "../../store/actions/order";
+import { connect } from "react-redux";
 
 const CheckoutForm = (props) => {
   const [value, setValue] = useState("");
-  const [order, setOrder] = useState(false);
 
   const handelFormSubmit = (e) => {
     e.preventDefault();
@@ -14,7 +15,7 @@ const CheckoutForm = (props) => {
       name: value.name,
       email: value.email,
     };
-    setOrder(order);
+    props.creatOrder(order);
   };
 
   const handelFormChange = (e) => {
@@ -25,7 +26,8 @@ const CheckoutForm = (props) => {
   };
 
   const closeModal = () => {
-    setOrder(false);
+    props.clearOrder();
+    props.setShowForm(false);
   };
 
   return (
@@ -68,9 +70,16 @@ const CheckoutForm = (props) => {
           </form>
         </div>
       </Slide>
-      <OrderModel order={order} closeModal={closeModal} />
+      <OrderModel order={props.order} closeModal={closeModal} />
     </div>
   );
 };
 
-export default CheckoutForm;
+export default connect(
+  (state) => {
+    return {
+      order: state.order.order,
+    };
+  },
+  { creatOrder, clearOrder }
+)(CheckoutForm);

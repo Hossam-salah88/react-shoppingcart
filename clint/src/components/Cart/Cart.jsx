@@ -68,6 +68,7 @@ const Cart = (props) => {
 export default connect(
   (state) => {
     return {
+      order: state.order.order,
       cartItems: state.cart.cartItems,
     };
   },
