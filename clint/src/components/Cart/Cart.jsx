@@ -5,6 +5,7 @@ import Zoom from "react-reveal/Zoom";
 import Bounce from "react-reveal/Bounce";
 import { connect } from "react-redux";
 import { removeCart } from "../../store/actions/cart";
+import { words } from "../../words";
 
 const Cart = (props) => {
   const [showForm, setShowForm] = useState(false);
@@ -14,7 +15,10 @@ const Cart = (props) => {
       <div className="cart">
         <h2 className="cart__title">
           {props.cartItems.length ? (
-            <p>There is {props.cartItems.length} products in card</p>
+            <p>
+              {" "}
+              {words.cartHeder} {props.cartItems.length}
+            </p>
           ) : (
             "The Cart is empty"
           )}
@@ -26,9 +30,16 @@ const Cart = (props) => {
                 <img className="cart__img" src={item.imgUrl} alt={item.title} />
                 <div className="cart__content">
                   <div className="cart__info">
-                    <p>title: {item.title}</p>
-                    <p>qun: {item.qty}</p>
-                    <p>price: ${item.price}</p>
+                    <p>
+                      {words.cartTitle} {item.title}
+                    </p>
+                    <p>
+                      {words.cartQun} {item.qty}
+                    </p>
+                    <p>
+                      {" "}
+                      {words.cartPrice} {item.price}
+                    </p>
                   </div>
                   <button
                     onClick={() => {
@@ -36,7 +47,7 @@ const Cart = (props) => {
                     }}
                     className="cart__btn"
                   >
-                    remove
+                    {words.cardRemoveBtn}
                   </button>
                 </div>
               </div>
@@ -46,13 +57,13 @@ const Cart = (props) => {
         {props.cartItems.length ? (
           <div className="cart__footer">
             <div className="cart__total">
-              Total: ${" "}
+              {words.cartTotal}{" "}
               {props.cartItems.reduce((acc, p) => {
                 return acc + p.price * p.qty;
               }, 0)}
             </div>
             <button on onClick={() => setShowForm(true)} className="cart__btn">
-              Select Product
+              {words.selectProductBtn}
             </button>
           </div>
         ) : (
